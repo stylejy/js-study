@@ -6,4 +6,4 @@ console.log('How many people are sharing the bill?');
 console.log('5 people');
 totalMoney = 350*1.3/5;
 console.log('calculate!');
-console.log('Each person need to pay ' + totalMoney + "$");
+console.log('Each person needs to pay ' + totalMoney + "$");
