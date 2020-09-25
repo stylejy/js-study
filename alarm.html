@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <Title>Alarm Clock</Title>
+    </head>
+    <body>
+        <h1>Alarm Clock</h1>
+        <p>알람을 울릴 날짜와 시간을 입력하세요.</p>
+        <h3>연도 - 월 - 일 - 시간 - 분</h3>
+        <input id="datetime" type="datetime-local" name="alarmtime">
+        <button type="button" onclick="showTime()">확 인</button>
+        <p id="nowTime"> </p>
+        <h1 id="alarmPop"> </h1>
+        <script type="text/javascript">
+
+        function showTime(){
+            var timeID = setInterval(showTime1,1000);
+
+            function showTime1(){
+            let dateTime = document.getElementById("datetime").value;
+            let year = Number(dateTime.slice(0,4));
+            let month = Number(dateTime.slice(5,7));
+            let day = Number(dateTime.slice(8,10));
+            let hour = Number(dateTime.slice(11,13));
+            let min = Number(dateTime.slice(14,16));
+            console.log('year: ' + year + ', month: ' + month + ', day: ' + day + ', hour: ' + hour + ', min: ' + min);
+
+            const nowTime = new Date()
+            const nowTime1 = Date.now()
+            const alarmTime = new Date(year, month-1, day, hour, min, nowTime.getSeconds(), nowTime.getMilliseconds());//여기서 시간 엄청 잡아 먹었음 -1 해야댐
+
+            console.log(alarmTime.getTime());
+            console.log(nowTime1);
+
+            if (alarmTime.getTime() === nowTime1) {
+                console.log("OUTOUTOUTOUT");
+                function popUp(){
+                    let i = 1;
+                    timeID1 = setInterval(popUpOut, 1000)
+                    function popUpOut () {
+                        i++
+                        if (i%2 == 0) {
+                            document.getElementById("alarmPop").innerHTML = 'Wake Up! Wake Up!';
+                        } else {
+                            document.getElementById("alarmPop").innerHTML = ' ';
+                        }
+                        if (i == 100){
+                            clearInterval(timeID1);
+                        }
+                    }
+                }
+                popUp();
+                clearInterval(timeID);
+            }
+            document.getElementById("nowTime").innerHTML = nowTime;
+        }
+        }
+        </script>
+        
+    </body>
+</html>
