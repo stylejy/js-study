@@ -1,1 +1,7 @@
-/* main css style here */
+button {
+    padding: 3px 5px;
+}
+
+body {
+    background-color: #f9f9f9;
+}
