@@ -47,7 +47,7 @@
 
             if (alarmTime.getTime() < nowTime1) {
                 document.getElementById("warningMassage").innerHTML = "현재 시간 이후의 시간을 입력하세요:)"
-
+                clearInterval(timeID)
             }
 
             if (alarmTime.getTime() === nowTime1) {
@@ -70,7 +70,6 @@
                 popUp();
                 clearInterval(timeID);
             }
-            //document.getElementById("nowTime").innerHTML = nowTime;
         }
         }
         </script>
