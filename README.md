@@ -1,1 +1,1 @@
-# js-study
+Revision of timer code that is written by jaehyun-lim
