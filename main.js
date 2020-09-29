@@ -3,13 +3,28 @@ let stopper = false;
 let checker = 0;
 
 function setter() {
-  const hour = document.getElementById("hour").value;
-  const minute = document.getElementById("minute").value;
-  const second = document.getElementById("second").value;
-  if (isNaN(hour) || isNaN(minute) || isNaN(second)) {
+  function toNum(num){
+    if (num === '' || num == 0){
+      return 0;
+    } else{
+      return num
+    }
+  }
+  let hour = document.getElementById("hour").value;
+  let minute = document.getElementById("minute").value;
+  let second = document.getElementById("second").value;
+  hour = toNum(hour); minute = toNum(minute); second = toNum(second);
+  console.log(typeof hour);S
+  if (hour == 0 && minute == 0 && second == 0)
+  //if (isNaN(hour) || isNaN(minute) || isNaN(second)) {
+    //alert("insert a valid number");
+   // return;
+  //}
+  if (isNaN(hour)) {
     alert("insert a valid number");
     return;
   }
+  //if (isNaN(hour))
   let time = hour * 3600 + minute * 60 + second * 1;
 
   document.getElementById("leftHour").innerHTML = parseInt(time/3600) + "시간";
